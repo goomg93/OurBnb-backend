@@ -2,63 +2,93 @@
 
 ## Introduction
 
-- 기간 : 22.01.14 ~ 22.02.11(연휴제외)
+- 기간 : 22.01.17 ~ 22.01.28
 - 구성 : Front-end 3명, Back-end 2명
 
-## Skills
+**🔗  Repository Links**
 
-- front-end
-  <img src="https://img.shields.io/badge/Javascript-yellow?style=for-the-badge&logo=Javascript&logoColor=white">
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
-  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-  <img src="https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
+[back-end](https://github.com/goomg93/fullstack3-2nd-OurBnb-backend)
 
-- back-end
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
-  <img src="https://img.shields.io/badge/Nodemon-76D04B?style=for-the-badge&logo=Nodemon&logoColor=white">
-  <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=Prisma&logoColor=white">
-  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white">
-  <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white">
+[front-end](https://github.com/goomg93/fullstack3-2nd-OurBnb-frontend)
 
-## Repository
 
-- [Frontend](https://github.com/zzangzzong92/fullstack3-2nd-OurBnb-frontend)
-- [Backend](https://github.com/zzangzzong92/fullstack3-2nd-OurBnb-backend)
+## 📜 프로젝트 내용
 
-## Member
+숙소 예약 사이트 AirBnB를 모티브로 한 웹페이지 제작 프로젝트
 
-- Frontend
+- 제주도 한정으로 데이터 수집
+- 소셜로그인 기능 구현(카카오 로그인)
 
-  - 최은비
-  - 장종현
-  - 민하늘
+## 🛠 기술 스택
 
-- Backend
-  - 박효상
-  - 구민기
+- Front : react.js, styled-component
+- Back : node.js, express, MYSQL, docker, AWS
 
-## Task
+## 🖥 개발 내용
 
-## Modeling
+### 데이터베이스 모델링
 
-![스크린샷 2022-02-08 오전 1 13 34](https://user-images.githubusercontent.com/70682567/152827078-4d136f7d-5e38-48b1-90b4-95824b682d28.png)
+<img width="849" alt="스크린샷 2022-03-18 오후 6 12 20" src="https://user-images.githubusercontent.com/90296791/158974283-c512e5ba-1899-4856-8a8c-e655a4f7fce8.png">
 
-## Convention
 
-Branch
+### 인증 미들웨어 구성
 
-- Feature/<기능 or 페이지> : 새로 만들 때 사용
-- Fix/<고치는 것> : 수정, 개선할 때 사용
+- 사용자 정보가 필요한 api 호출의 경우 로그인이 되어야 하는 인증 미들웨어 구성
+- 로그인을 하지 않아도 이용할 수 있는 api 호출에 대해 사용자 정보 없이 사용 가능하도록 미들웨어 구성
 
-Commit
+### 숙소 리스트 페이지 API!
 
-- Add : 기능 추가할 때
-- Fix : 기능 수정, 개선할 때
-- Del : 기능 삭제할 때
-- Merge : 파일 머지할 때
+<img width="891" alt="스크린샷 2022-03-16 오후 5 42 18" src="https://user-images.githubusercontent.com/90296791/158974605-d1029cf0-22ee-487a-9687-0bf5cb7ec6cf.png">
 
-File
+- 검색 조건(지역, 체크인, 체크아웃, 인원수)에 따라 필터되어 숙소 정보 전달 API
+- 리스트 페이지에서 상세 조건(편의시설,숙소종류)에 따라 필터 기능
+- limit, offset을 사용해서 페이지네이션 기능 구현
+    - 프론트의 페이지네이션 로직도 같이 구현
 
-- 페이지 폴더 및 파일명 : Pascal Case
-- 컴포넌트 파일명 : Pascal Case
-- 클래스명 : camel Case
+### 위시리스트 추가/제거 API
+
+- 로그인 시 위시리스트 추가/제거 기능
+    - 로그인 시 위시리스트 체크 여부도 확인 후 전달
+    - 프론트의 위시리스트 체크 기능 백엔드 엔드포인트와 연결
+
+### 예약리스트 GET API
+
+- 예약리스트 정보를 지난예약, 진행중인 예약, 예정된 예약으로 나눠 전달
+    - 프론트의 예약정보 확인 마이페이지 구현
+
+### 메인페이지 header 컴포넌트에 달력 모달창 구현
+
+- datepicker 라이브러리를 사용하여 모달차 구현 및 디자인 커스텀
+
+## 💡 성장 경험
+
+### 코드리뷰
+
+지난 프로젝트에서 코드리뷰를 많이 진행하지 못한 아쉬움과 반성이 있어서 이번 프로젝트에서는
+
+코드리뷰를 하기위해서 노력했습니다.
+
+역시나 촉박한 일정에 꼼꼼하게 하지는 못했지만 서로의 코드를 봐주면서 배워가는 부분이 많았습니다.
+
+개발에는 소통이 매우 중요하다고 생각하는데 코드리뷰는 개발자간의 소통하는 방법 중 하나라고 생각합니다.
+
+서로의 코드로 소통해야 나중에 전체적인 흐름을 이해하는 눈이 생기는 것 같다고 느꼈습니다.
+
+### 예외 처리의 중요성
+
+처음에 간단한 형태로 정보를 전달하는 API를 구성하는 것은 비교적 간단하다고 생각합니다.
+
+하지만 로그인 기능이 추가되거나 query parameter들이 추가 되면서 프론트엔드랑 연결하면서
+
+예상치 못한 에러들이 많이 일어나는 것을 경험했습니다.
+
+지금은 문제가 발생하면 console.log 로 확인해가면서 문제를 수정하는 방식으로 문제를 해결해나갔습니다.
+
+이러한 문제를 겪다보니 TDD 방식의 필요성을 느꼈습니다. 좀 더 꼼꼼한 하게 예외처리를 하며
+
+테스트코드를 작성하며 개발하는 방식에 대해 공부할 필요성을 느끼는 프로젝트였습니다.
+
+## 👀 서비스 화면
+
+링크 - [https://vimeo.com/688766304](https://vimeo.com/688766304)
+
